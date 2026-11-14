@@ -47,7 +47,7 @@
 <div class="card">
   <p><strong>Kort fortalt:</strong> SAR har ingen konto, ingen sporing, ingen reklame og ingen analyseverktøy.
   Vi i Rescue Norway mottar ingen opplysninger om deg. Posisjonen din brukes på telefonen, og sendes bare til
-  tjenestene som leverer vær, tidevann og stedsnavn, og bare når du bruker appen.</p>
+  tjenestene som leverer vær, tidevann, stedsnavn og drivberegning, og bare når du bruker appen.</p>
 </div>
 
 <h2>Hvem er ansvarlig</h2>
@@ -63,10 +63,13 @@ Uten posisjon kan du fortsatt skrive inn koordinater og velge sted selv.</p>
 <h2>Hva som sendes, og til hvem</h2>
 <ul>
   <li><strong><a href="https://www.met.no/">Meteorologisk institutt</a></strong> (api.met.no): koordinater avrundet til
-  4 desimaler (omtrent 10 meter) og eventuelt høyde over havet, for værvarsel. Farevarsler hentes som én felles liste
+  4 desimaler (omtrent 10 meter) og eventuelt høyde over havet, for værvarsel og havstrøm. Farevarsler hentes som én felles liste
   for hele Norge, uten posisjon.</li>
   <li><strong><a href="https://www.kartverket.no/">Kartverket</a></strong> (vannstand.kartverket.no): koordinatene til
   stedet du ser tidevann for, og kartfliser for området du ser på i Kart-fanen (sjøkart og Norgeskart).</li>
+  <li><strong>Drivberegning</strong> (rescuemaps.no), bare når du trykker «Beregn drift»: startpunktet i kartet,
+  objekttype, antall timer og vind og strøm. Serveren kjører beregningen med OpenDrift og sender resultatet tilbake.
+  Appen lagrer ikke beregningen.</li>
   <li><strong>Apple</strong>: posisjonen din og det du skriver i stedssøket, for stedsnavn øverst i værfanen og søk
   etter steder i vær- og tidevannsfanen. Satellittkartet i Kart-fanen hentes også fra Apple. Behandles etter <a href="https://www.apple.com/legal/privacy/">Apples
   personvernerklæring</a>.</li>
@@ -113,7 +116,7 @@ For data hos MET, Kartverket eller Apple gjelder deres personvernerklæringer. H
 <div class="card">
   <p><strong>In short:</strong> SAR has no account, no tracking, no ads and no analytics. Rescue Norway receives no
   information about you. Your location is used on your phone and is only sent to the services that provide weather,
-  tides and place names, and only while you use the app.</p>
+  tides, place names and drift calculations, and only while you use the app.</p>
 </div>
 
 <h2>Who is responsible</h2>
@@ -129,10 +132,13 @@ Without location you can still enter coordinates and pick a place yourself.</p>
 <h2>What is sent, and to whom</h2>
 <ul>
   <li><strong>Norwegian Meteorological Institute</strong> (api.met.no): coordinates rounded to 4 decimals (about
-  10 metres) and possibly altitude, for the weather forecast. Warnings are downloaded as one list for all of Norway,
+  10 metres) and possibly altitude, for the weather forecast and ocean currents. Warnings are downloaded as one list for all of Norway,
   without your location.</li>
   <li><strong>Norwegian Mapping Authority</strong> (vannstand.kartverket.no): the coordinates of the place you view
   tides for, and map tiles for the area you view in the map tab (nautical and topographic maps).</li>
+  <li><strong>Drift calculation</strong> (rescuemaps.no), only when you tap “Calculate drift”: the start point on
+  the map, object type, number of hours, and wind and current. The server runs the calculation with OpenDrift and
+  returns the result. The app does not store the calculation.</li>
   <li><strong>Apple</strong>: your location and what you type in place search, for the place name in the weather tab
   and place search in the weather and tides tabs. Satellite imagery in the map tab also comes from Apple. Handled under <a href="https://www.apple.com/legal/privacy/">Apple’s privacy
   policy</a>.</li>
