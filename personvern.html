@@ -103,6 +103,10 @@ denne enheten. Appen sender da dette til Rescue Norway (rescuemaps.no), og på n
 valgt. Selve varslene sendes via Apples push-tjeneste (APNs), som behandler dem etter
 <a href="https://www.apple.com/legal/privacy/">Apples personvernerklæring</a>. Når Varsler-fanen er åpen, henter appen
 også valgmulighetene og listen over luftfartøy som er i lufta, uten å sende noe om deg.</p>
+<p>Noen meldinger fra politiloggen har et bilde, for eksempel av en savnet person. Da henter telefonen bildet direkte
+fra <a href="https://www.politiet.no/">Politiet</a> (api.politiloggen.politiet.no), både når varselet kommer, så det
+kan vises i varselet, og når du åpner varselet i appen. Forespørselen inneholder ikke noe om deg, men Politiet kan som
+alle nettsteder se IP-adressen den kommer fra. Bildet ligger i varselet til du fjerner det, og lagres ikke i appen.</p>
 <p>Slår du av alt i Varsler-fanen, sletter vi tokenet og valgene dine. Sletter du appen, sier Apple
 fra at tokenet ikke lenger virker, og da sletter vi det sammen med valgene. Ønsker du at vi sletter det med en gang,
 kontakt oss på <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>.</p>
@@ -204,6 +208,11 @@ who you are, but lets us send alerts to this particular device. The app then sen
 alerts themselves are delivered through Apple’s push service (APNs), handled under
 <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>. While the Alerts tab is open, the app also
 fetches the available choices and the list of aircraft currently airborne, without sending anything about you.</p>
+<p>Some police log messages include an image, for example of a missing person. The phone then fetches the image
+directly from the <a href="https://www.politiet.no/">Norwegian Police</a> (api.politiloggen.politiet.no), both when the
+alert arrives, so it can be shown in the notification, and when you open the alert in the app. The request contains
+nothing about you, but like any website the police can see the IP address it comes from. The image stays in the
+notification until you remove it, and is not stored in the app.</p>
 <p>If you turn everything off in the Alerts tab, we delete the token and your choices. If you delete the app, Apple tells us the token no longer works, and we delete it along with your choices.
 To have it deleted right
 away, contact <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>.</p>
