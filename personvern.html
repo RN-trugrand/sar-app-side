@@ -98,6 +98,8 @@ denne enheten. Appen sender da dette til Rescue Norway (rescuemaps.no), og på n
   <li>Push-tokenet, og om appen er en testversjon eller vanlig versjon.</li>
   <li>Hva du vil varsles om: hvilke luftfartøy du følger, politidistrikter og hendelsestyper fra politiloggen,
   og redningsskøyte-stasjoner og statuser.</li>
+  <li>For tidevannsvarsler: navn og posisjon for favorittene i Tidevann som du slår på varsler for. Serveren
+  henter vannstandsvarsel fra Kartverket for disse stedene, uten noe som identifiserer deg.</li>
 </ul>
 <p>Serveren lagrer dette sammen med tidspunktet for siste endring, og bruker det bare til å sende deg varslene du har
 valgt. Selve varslene sendes via Apples push-tjeneste (APNs), som behandler dem etter
@@ -204,6 +206,9 @@ who you are, but lets us send alerts to this particular device. The app then sen
   <li>The push token, and whether the app is a test build or the regular version.</li>
   <li>What you want to be alerted about: which aircraft you follow, police districts and incident types from the police
   log, and rescue boat stations and statuses.</li>
+  <li>For tide alerts: the name and position of the favourites in Tides that you turn alerts on for. The server
+  fetches water level forecasts from the Norwegian Mapping Authority for these places, without anything that
+  identifies you.</li>
 </ul>
 <p>The server stores this with the time of the last change, and only uses it to send you the alerts you chose. The
 alerts themselves are delivered through Apple’s push service (APNs), handled under
