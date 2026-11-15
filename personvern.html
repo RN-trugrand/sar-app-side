@@ -41,14 +41,15 @@
 <main>
 
 <h1>Personvern i SAR</h1>
-<p class="sub">Rescue Norway · Sist oppdatert 14. november 2026</p>
+<p class="sub">Rescue Norway · Sist oppdatert 15. november 2026</p>
 <p class="lang"><a href="#english">English version below</a></p>
 
 <div class="card">
   <p><strong>Kort fortalt:</strong> SAR har ingen konto, ingen sporing, ingen reklame og ingen analyseverktøy.
   Posisjonen din brukes på telefonen, og sendes bare til tjenestene som leverer vær, tidevann og stedsnavn, og bare
   når du bruker appen. Rescue Norway mottar bare det du ber om: startpunktet og verdiene for en drivberegning, og
-  kartutsnittet når du ser på fartøy eller fly, ikke hvem du er.</p>
+  kartutsnittet når du ser på fartøy eller fly, ikke hvem du er. Slår du på varsler, lagrer vi en anonym
+  push-adresse for enheten og hva du vil varsles om.</p>
 </div>
 
 <h2>Hvem er ansvarlig</h2>
@@ -89,6 +90,23 @@ Uten posisjon kan du fortsatt skrive inn koordinater og velge sted selv.</p>
 til MET, slik METs vilkår krever, men ingenting som identifiserer deg. Tjenestene kan som alle nettsteder se
 IP-adressen forespørselen kommer fra.</p>
 
+<h2>Varsler</h2>
+<p>Varsler er av til du slår på noe i Varsler-fanen. Første gang ber appen om lov til å vise varsler. Sier du ja, gir
+Apple appen en push-adresse (et token) for enheten. Tokenet sier ikke hvem du er, men lar oss sende varsler til akkurat
+denne enheten. Appen sender da dette til Rescue Norway (rescuemaps.no), og på nytt hver gang du endrer valgene:</p>
+<ul>
+  <li>Push-tokenet, og om appen er en testversjon eller vanlig versjon.</li>
+  <li>Hva du vil varsles om: hvilke luftfartøy du følger, politidistrikter og hendelsestyper fra politiloggen,
+  og redningsskøyte-stasjoner og statuser.</li>
+</ul>
+<p>Serveren lagrer dette sammen med tidspunktet for siste endring, og bruker det bare til å sende deg varslene du har
+valgt. Selve varslene sendes via Apples push-tjeneste (APNs), som behandler dem etter
+<a href="https://www.apple.com/legal/privacy/">Apples personvernerklæring</a>. Når Varsler-fanen er åpen, henter appen
+også valgmulighetene og listen over luftfartøy som er i lufta, uten å sende noe om deg.</p>
+<p>Slår du av alt i Varsler-fanen, sletter vi tokenet og valgene dine. Sletter du appen eller slår av varsler for SAR i Innstillinger, sier Apple
+fra at tokenet ikke lenger virker, og da sletter vi det sammen med valgene. Ønsker du at vi sletter det med en gang,
+kontakt oss på <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>.</p>
+
 <h2>Hva som lagres på enheten</h2>
 <p>Disse innstillingene og dataene lagres bare på din iPhone (og deles med widgetene og Apple Watch):</p>
 <ul>
@@ -96,8 +114,10 @@ IP-adressen forespørselen kommer fra.</p>
   <li>Siste og lagret posisjon i Koordinater.</li>
   <li>Valgt sted for tidevann, favoritter og sist brukte steder.</li>
   <li>Midlertidig kopi av tidevannsdata, så widgetene og klokka kan vise den. Værdata holdes bare i minnet mens appen er åpen.</li>
+  <li>Valgene i Varsler-fanen og de siste 100 mottatte varslene. Du kan tømme listen i appen.</li>
 </ul>
-<p>Valgt sted og tidevannsdata sendes mellom iPhone og Apple Watch. Ingenting av dette sendes til Rescue Norway.
+<p>Valgt sted og tidevannsdata sendes mellom iPhone og Apple Watch. Bortsett fra valgene for varsler (se over) sendes
+ingenting av dette til Rescue Norway.
 Sletter du appen, slettes alt.</p>
 
 <h2>Det vi ikke gjør</h2>
@@ -108,7 +128,8 @@ Sletter du appen, slettes alt.</p>
 </ul>
 
 <h2>Dine rettigheter</h2>
-<p>Siden Rescue Norway ikke lagrer opplysninger om deg, har vi ingenting å vise fram, rette eller slette.
+<p>Rescue Norway lagrer bare push-tokenet og valgene dine hvis du har slått på varsler. Det kan du se og endre i
+Varsler-fanen, og slår du av alt, slettes det. Utover det lagrer vi ingen opplysninger om deg.
 For data hos MET, Kartverket eller Apple gjelder deres personvernerklæringer. Har du spørsmål, kontakt oss på
 <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>. Du kan også klage til
 <a href="https://www.datatilsynet.no/">Datatilsynet</a>.</p>
@@ -120,13 +141,14 @@ For data hos MET, Kartverket eller Apple gjelder deres personvernerklæringer. H
 
 <section id="english" lang="en">
 <h1>Privacy in SAR</h1>
-<p class="sub">Rescue Norway · Last updated 14 November 2026</p>
+<p class="sub">Rescue Norway · Last updated 15 November 2026</p>
 
 <div class="card">
   <p><strong>In short:</strong> SAR has no account, no tracking, no ads and no analytics.
   Your location is used on your phone and is only sent to the services that provide weather,
   tides and place names, and only while you use the app. Rescue Norway only receives what you ask for: the start point
-  and values for a drift calculation, and the map area when you view vessels or aircraft, not who you are.</p>
+  and values for a drift calculation, and the map area when you view vessels or aircraft, not who you are. If you turn on
+  alerts, we store an anonymous push address for the device and what you want to be alerted about.</p>
 </div>
 
 <h2>Who is responsible</h2>
@@ -168,17 +190,37 @@ Without location you can still enter coordinates and pick a place yourself.</p>
 MET’s terms require, but nothing that identifies you. Like any website, these services can see the IP address a
 request comes from.</p>
 
+<h2>Alerts</h2>
+<p>Alerts are off until you turn something on in the Alerts tab. The first time, the app asks for permission to show
+notifications. If you allow it, Apple gives the app a push address (a token) for the device. The token does not say
+who you are, but lets us send alerts to this particular device. The app then sends the following to Rescue Norway
+(rescuemaps.no), and again each time you change your choices:</p>
+<ul>
+  <li>The push token, and whether the app is a test build or the regular version.</li>
+  <li>What you want to be alerted about: which aircraft you follow, police districts and incident types from the police
+  log, and rescue boat stations and statuses.</li>
+</ul>
+<p>The server stores this with the time of the last change, and only uses it to send you the alerts you chose. The
+alerts themselves are delivered through Apple’s push service (APNs), handled under
+<a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>. While the Alerts tab is open, the app also
+fetches the available choices and the list of aircraft currently airborne, without sending anything about you.</p>
+<p>If you turn everything off in the Alerts tab, we delete the token and your choices. If you delete the app or turn off notifications for SAR in
+Settings, Apple tells us the token no longer works, and we delete it along with your choices. To have it deleted right
+away, contact <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>.</p>
+
 <h2>What is stored on your device</h2>
 <p>Theme and coordinate format, last and saved position in Coordinates, chosen tide place, favourites and recent
 places, and a temporary copy of tide data for the widgets and watch (weather data is only kept in memory while the app is open). This stays on your iPhone, and is shared with the widgets and
-Apple Watch. The chosen place and tide data are sent between iPhone and Apple Watch. None of it is sent to Rescue
-Norway. Deleting the app deletes everything.</p>
+Apple Watch. Your alert choices and the last 100 alerts received are also stored on the device; you can clear the list in
+the app. The chosen place and tide data are sent between iPhone and Apple Watch. Apart from your alert choices (see
+above), none of it is sent to Rescue Norway. Deleting the app deletes everything.</p>
 
 <h2>What we don’t do</h2>
 <p>No user account, no third-party tracking, ads or analytics, and we never sell or share information about you.</p>
 
 <h2>Your rights</h2>
-<p>Since Rescue Norway stores no information about you, there is nothing for us to show, correct or delete. For data
+<p>Rescue Norway only stores the push token and your choices if you have turned on alerts. You can see and change them
+in the Alerts tab, and turning everything off deletes them. Beyond that we store no information about you. For data
 held by MET, the Mapping Authority or Apple, their privacy policies apply. Questions:
 <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>. You may also complain to the Norwegian Data
 Protection Authority, <a href="https://www.datatilsynet.no/en/">Datatilsynet</a>.</p>
