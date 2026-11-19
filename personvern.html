@@ -41,14 +41,14 @@
 <main>
 
 <h1>Personvern i SAR</h1>
-<p class="sub">Rescue Norway · Sist oppdatert 15. november 2026</p>
+<p class="sub">Rescue Norway · Sist oppdatert 19. november 2026</p>
 <p class="lang"><a href="#english">English version below</a></p>
 
 <div class="card">
   <p><strong>Kort fortalt:</strong> SAR har ingen konto, ingen sporing, ingen reklame og ingen analyseverktøy.
   Posisjonen din brukes på telefonen, og sendes bare til tjenestene som leverer vær, tidevann og stedsnavn, og bare
-  når du bruker appen. Rescue Norway mottar bare det du ber om: startpunktet og verdiene for en drivberegning, og
-  kartutsnittet når du ser på fartøy eller fly, ikke hvem du er. Slår du på varsler, lagrer vi en anonym
+  når du bruker appen. Rescue Norway mottar bare det du ber om, for eksempel kartutsnittet når du ser på fartøy eller
+  fly, eller startpunktet for en drivberegning, ikke hvem du er. Slår du på varsler, lagrer vi en anonym
   push-adresse for enheten og hva du vil varsles om.</p>
 </div>
 
@@ -69,14 +69,15 @@ Uten posisjon kan du fortsatt skrive inn koordinater og velge sted selv.</p>
   for hele Norge, uten posisjon.</li>
   <li><strong><a href="https://www.kartverket.no/">Kartverket</a></strong> (vannstand.kartverket.no): koordinatene til
   stedet du ser tidevann for, og kartfliser for området du ser på i Kart-fanen (sjøkart og Norgeskart).</li>
-  <li><strong>Rescue Norway</strong> (rescuemaps.no), bare når du trykker «Beregn drift»: startpunktet i kartet,
-  objekttype, antall timer og vind og strøm. Vår server kjører beregningen med OpenDrift og sender resultatet
-  tilbake. Appen lagrer ikke beregningen.</li>
-  <li><strong>Rescue Norway</strong> (rescuemaps.no), bare når fartøy (AIS) er slått på i Kart: hjørnene av
-  kartutsnittet du ser på, omtrent hvert 15. sekund, for å hente fartøy og redningsskøyter i området. Posisjonen
-  din sendes ikke.</li>
-  <li><strong>Rescue Norway</strong> (rescuemaps.no), bare når fly (ADS-B) er slått på i Kart: midten av
-  kartutsnittet og en radius, omtrent hvert 10. sekund, for å hente fly i området. Posisjonen din sendes ikke.</li>
+  <li><strong>Rescue Norway</strong> (rescuemaps.no), når fartøy (AIS) eller fly (ADS-B) er slått på i Kart:
+  hjørnene av kartutsnittet du ser på. Appen holder en åpen forbindelse til serveren vår mens Kart er åpent, og får
+  fartøy, redningsskøyter og fly i området etter hvert som de endrer seg. Flytter du kartet, sendes det nye utsnittet.
+  Posisjonen din sendes ikke.</li>
+  <li><strong>Rescue Norway</strong> (rescuemaps.no), bare når du ber om det i Kart: søketeksten når du søker etter
+  fartøy eller fly, hvilket fartøy eller fly du åpner spor, rapport eller avspilling for, og tidsrommet, start- og
+  sluttpunkt når du måler sjørute, og startpunktet i kartet, objekttype, antall timer og vind og strøm når du trykker
+  «Beregn drift». Serveren vår henter svaret, eller kjører drivberegningen med OpenDrift, og sender det tilbake.
+  Vi tar ikke vare på det, bortsett fra en kort hurtigbuffer på noen minutter og de tekniske loggene (se under).</li>
   <li><strong><a href="https://www.openstreetmap.org/">OpenStreetMap</a></strong> (tile.openstreetmap.org): kartfliser
   for området du ser på i Kart-fanen når OpenStreetMap-laget er valgt. Behandles etter
   <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundations personvernerklæring</a>.</li>
@@ -86,9 +87,24 @@ Uten posisjon kan du fortsatt skrive inn koordinater og velge sted selv.</p>
   <li><strong>Kart og deling, bare når du velger det:</strong> åpner du en posisjon i Apple Kart, Google Maps eller
   Norgeskart, eller deler koordinater, går de til tjenesten eller mottakeren du velger.</li>
 </ul>
-<p>Alle forespørsler sendes kryptert (HTTPS). Appen sender med navnet på appen og vår kontaktadresse
+<p>Appen sender alle forespørsler kryptert (HTTPS). Appen sender med navnet på appen og vår kontaktadresse
 til MET, slik METs vilkår krever, men ingenting som identifiserer deg. Tjenestene kan som alle nettsteder se
 IP-adressen forespørselen kommer fra.</p>
+<p>Serverne våre fører tekniske logger med blant annet IP-adresse, tidspunkt og hvilken adresse som ble bedt om, for
+å holde tjenesten stabil og stoppe misbruk. Loggene brukes ikke til å kartlegge hvem som bruker appen.</p>
+
+<h2>Apple Watch</h2>
+<p>SAR på Apple Watch ber om tilgang til posisjon mens appen er åpen på klokka. Posisjonen vises som koordinat, og
+klokka henter værvarsel og farevarsler fra <a href="https://www.met.no/">Meteorologisk institutt</a> for stedet, med
+koordinatene avrundet til 4 desimaler, på samme måte som telefonen. Siste posisjon lagres på klokka, så
+komplikasjonen på urskiven kan vise den. Den sendes ikke til Rescue Norway.</p>
+
+<h2>Sikring av tjenesten (App Attest)</h2>
+<p>For å stoppe falske forespørsler som utgir seg for å være SAR, bruker appen Apples App Attest. Første gang lager
+appen en nøkkel i den sikre brikken på enheten, og Apple bekrefter at den tilhører den ekte SAR-appen. Serverne våre
+lagrer den offentlige delen av nøkkelen og en teller, og sjekker signaturen på forespørslene fra appen. Nøkkelen sier
+ikke hvem du er, er laget bare for SAR og kan ikke brukes til å følge deg i andre apper. Apple behandler sin del etter
+<a href="https://www.apple.com/legal/privacy/">Apples personvernerklæring</a>.</p>
 
 <h2>Varsler</h2>
 <p>Varsler er av til du slår på noe i Varsler-fanen. Første gang ber appen om lov til å vise varsler. Sier du ja, gir
@@ -120,11 +136,12 @@ kontakt oss på <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</
   <li>Siste og lagret posisjon i Koordinater.</li>
   <li>Valgt sted for tidevann, favoritter og sist brukte steder.</li>
   <li>Midlertidig kopi av tidevannsdata, så widgetene og klokka kan vise den. Værdata holdes bare i minnet mens appen er åpen.</li>
+  <li>App Attest-nøkkelen, i den sikre brikken på enheten.</li>
   <li>Valgene i Varsler-fanen og mottatte varsler fra de siste 30 dagene (høyst 100). Eldre varsler slettes
   automatisk, og du kan tømme listen i appen.</li>
 </ul>
-<p>Valgt sted og tidevannsdata sendes mellom iPhone og Apple Watch. Bortsett fra valgene for varsler (se over) sendes
-ingenting av dette til Rescue Norway.
+<p>Valgt sted og tidevannsdata sendes mellom iPhone og Apple Watch. På klokka lagres i tillegg siste posisjon og
+valgt koordinatformat. Bortsett fra valgene for varsler (se over) sendes ingenting av dette til Rescue Norway.
 Sletter du appen, slettes alt.</p>
 
 <h2>Det vi ikke gjør</h2>
@@ -135,8 +152,9 @@ Sletter du appen, slettes alt.</p>
 </ul>
 
 <h2>Dine rettigheter</h2>
-<p>Rescue Norway lagrer bare push-tokenet og valgene dine hvis du har slått på varsler. Det kan du se og endre i
-Varsler-fanen, og slår du av alt, slettes det. Utover det lagrer vi ingen opplysninger om deg.
+<p>Rescue Norway lagrer push-tokenet og valgene dine bare hvis du har slått på varsler. Det kan du se og endre i
+Varsler-fanen, og slår du av alt, slettes det. I tillegg lagrer vi den offentlige delen av App Attest-nøkkelen og
+tekniske logger (se over). Ingen av delene sier hvem du er.
 For data hos MET, Kartverket eller Apple gjelder deres personvernerklæringer. Har du spørsmål, kontakt oss på
 <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>. Du kan også klage til
 <a href="https://www.datatilsynet.no/">Datatilsynet</a>.</p>
@@ -148,13 +166,13 @@ For data hos MET, Kartverket eller Apple gjelder deres personvernerklæringer. H
 
 <section id="english" lang="en">
 <h1>Privacy in SAR</h1>
-<p class="sub">Rescue Norway · Last updated 15 November 2026</p>
+<p class="sub">Rescue Norway · Last updated 19 November 2026</p>
 
 <div class="card">
   <p><strong>In short:</strong> SAR has no account, no tracking, no ads and no analytics.
   Your location is used on your phone and is only sent to the services that provide weather,
-  tides and place names, and only while you use the app. Rescue Norway only receives what you ask for: the start point
-  and values for a drift calculation, and the map area when you view vessels or aircraft, not who you are. If you turn on
+  tides and place names, and only while you use the app. Rescue Norway only receives what you ask for, such as the map
+  area when you view vessels or aircraft, or the start point for a drift calculation, not who you are. If you turn on
   alerts, we store an anonymous push address for the device and what you want to be alerted about.</p>
 </div>
 
@@ -175,15 +193,16 @@ Without location you can still enter coordinates and pick a place yourself.</p>
   without your location.</li>
   <li><strong>Norwegian Mapping Authority</strong> (vannstand.kartverket.no): the coordinates of the place you view
   tides for, and map tiles for the area you view in the map tab (nautical and topographic maps).</li>
-  <li><strong>Rescue Norway</strong> (rescuemaps.no), only when you tap “Calculate drift”: the start point on the
-  map, object type, number of hours, and wind and current. Our server runs the calculation with OpenDrift and returns
-  the result. The app does not store the calculation.</li>
-  <li><strong>Rescue Norway</strong> (rescuemaps.no), only when vessels (AIS) are turned on in the map tab: the
-  corners of the map area you are viewing, about every 15 seconds, to fetch vessels and rescue boats in that area.
-  Your location is not sent.</li>
-  <li><strong>Rescue Norway</strong> (rescuemaps.no), only when aircraft (ADS-B) are turned on in the map tab: the
-  centre of the map area and a radius, about every 10 seconds, to fetch aircraft in that area. Your location is not
-  sent.</li>
+  <li><strong>Rescue Norway</strong> (rescuemaps.no), when vessels (AIS) or aircraft (ADS-B) are turned on in the
+  map tab: the corners of the map area you are viewing. While the map is open, the app keeps a connection open to our
+  server and receives vessels, rescue boats and aircraft in that area as they change. When you move the map, the new
+  area is sent. Your location is not sent.</li>
+  <li><strong>Rescue Norway</strong> (rescuemaps.no), only when you ask for it in the map tab: your search text when
+  you search for vessels or aircraft, which vessel or aircraft you open a track, report or playback for and the time
+  period, the start and end point when you measure a sea route, and the start point on the map, object type, number of
+  hours, and wind and current when you tap “Calculate drift”. Our server fetches the answer, or runs the drift
+  calculation with OpenDrift, and sends it back. We do not keep it, apart from a short cache of a few minutes and the
+  technical logs (see below).</li>
   <li><strong>OpenStreetMap</strong> (tile.openstreetmap.org): map tiles for the area you view in the map tab when the
   OpenStreetMap layer is selected. Handled under the
   <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a>.</li>
@@ -193,9 +212,25 @@ Without location you can still enter coordinates and pick a place yourself.</p>
   <li><strong>Maps and sharing, only when you choose:</strong> if you open a position in Apple Maps, Google Maps or
   Norgeskart, or share coordinates, they go to the service or recipient you choose.</li>
 </ul>
-<p>All requests are encrypted (HTTPS). Requests to MET include the app name and our contact address, as
+<p>The app sends all requests encrypted (HTTPS). Requests to MET include the app name and our contact address, as
 MET’s terms require, but nothing that identifies you. Like any website, these services can see the IP address a
 request comes from.</p>
+<p>Our servers keep technical logs including IP address, time and the address requested, to keep the service stable
+and stop misuse. The
+logs are not used to map who uses the app.</p>
+
+<h2>Apple Watch</h2>
+<p>SAR on Apple Watch asks for location access while the app is open on the watch. The location is shown as a
+coordinate, and the watch fetches the weather forecast and warnings from the Norwegian Meteorological Institute for
+that place, with coordinates rounded to 4 decimals, just like the phone. The last position is stored on the watch so the
+watch face complication can show it. It is not sent to Rescue Norway.</p>
+
+<h2>Protecting the service (App Attest)</h2>
+<p>To stop fake requests pretending to be SAR, the app uses Apple’s App Attest. The first time, the app creates a key
+in the device’s secure chip, and Apple confirms that it belongs to the genuine SAR app. Our servers store the public
+part of the key and a counter, and check the signature on requests from the app. The key does not say who you are, is
+made only for SAR and cannot be used to follow you in other apps. Apple handles its part under
+<a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
 
 <h2>Alerts</h2>
 <p>Alerts are off until you turn something on in the Alerts tab. The first time, the app asks for permission to show
@@ -225,8 +260,8 @@ away, contact <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>
 
 <h2>What is stored on your device</h2>
 <p>Theme and coordinate format, last and saved position in Coordinates, chosen tide place, favourites and recent
-places, and a temporary copy of tide data for the widgets and watch (weather data is only kept in memory while the app is open). This stays on your iPhone, and is shared with the widgets and
-Apple Watch. Your alert choices and alerts received in the last 30 days (at most 100) are also stored on the device; older alerts
+places, a temporary copy of tide data for the widgets and watch (weather data is only kept in memory while the app is open), and the App Attest key in the device’s secure chip. This stays on your iPhone, and is shared with the widgets and
+Apple Watch. The watch also stores its last position and chosen coordinate format. Your alert choices and alerts received in the last 30 days (at most 100) are also stored on the device; older alerts
 are deleted automatically, and you can clear the list in the app. The chosen place and tide data are sent between iPhone and Apple Watch. Apart from your alert choices (see
 above), none of it is sent to Rescue Norway. Deleting the app deletes everything.</p>
 
@@ -235,7 +270,8 @@ above), none of it is sent to Rescue Norway. Deleting the app deletes everything
 
 <h2>Your rights</h2>
 <p>Rescue Norway only stores the push token and your choices if you have turned on alerts. You can see and change them
-in the Alerts tab, and turning everything off deletes them. Beyond that we store no information about you. For data
+in the Alerts tab, and turning everything off deletes them. We also store the public part of the App Attest key and
+technical logs (see above). Neither says who you are. For data
 held by MET, the Mapping Authority or Apple, their privacy policies apply. Questions:
 <a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a>. You may also complain to the Norwegian Data
 Protection Authority, <a href="https://www.datatilsynet.no/en/">Datatilsynet</a>.</p>
