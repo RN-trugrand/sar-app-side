@@ -4,10 +4,142 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAR – Rescue Norway</title>
-<meta http-equiv="refresh" content="0; url=personvern.html">
-<link rel="canonical" href="personvern.html">
+<meta name="description" content="SAR-appen fra Rescue Norway: verktøy for søk og redning. Brukerstøtte og kontakt.">
+<style>
+  :root {
+    --bg: #f2f2f5; --card: #fff; --text: #0a0d0f; --muted: #4d525c;
+    --border: #c2c7cf; --accent: #0a529e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0a0a0a; --card: #1f1f1f; --text: #f5f5f5; --muted: #adadad;
+            --border: #474747; --accent: #78b8ff; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+  h3 { font-size: 1.02rem; margin: 20px 0 4px; }
+  p, li { margin: 0 0 10px; }
+  ul { padding-left: 1.2em; margin: 0 0 10px; }
+  a { color: var(--accent); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+  .contact { font-size: 1.15rem; font-weight: 600; }
+  .lang { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
+  .note { color: var(--muted); font-size: 0.95rem; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 48px 0 32px; }
+  footer { color: var(--muted); font-size: 0.9rem; margin-top: 40px; }
+</style>
 </head>
 <body>
-<p><a href="personvern.html">Personvern i SAR</a></p>
+<main>
+
+<h1>SAR</h1>
+<p class="sub">Verktøy for søk og redning · Rescue Norway</p>
+<p class="lang"><a href="#english">English version below</a></p>
+
+<p>SAR samler verktøyene frivillige og mannskap trenger i søk og redning: koordinater i alle formater, kart med
+fartøy, redningsskøyter og fly, drivberegning, tidevann, vær og varsler fra politiloggen og redningsskøytene.
+Appen finnes for iPhone, iPad og Apple Watch.</p>
+
+<h2>Brukerstøtte</h2>
+<div class="card">
+  <p>Spørsmål, feil eller ønsker? Send en e-post, gjerne med skjermbilde og hvilken versjon du har
+  (Mer → Innstillinger → Om).</p>
+  <p class="contact"><a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a></p>
+</div>
+
+<h2>Vanlige spørsmål</h2>
+
+<h3>Jeg får ikke varsler</h3>
+<p>Sjekk at varsler er slått på for SAR i Innstillinger → Varslinger på iPhone, og at du har valgt noe i
+Mer → Varsler. Varslene kommer bare når noe faktisk skjer, for eksempel når et fly du følger tar av, eller det kommer en
+ny melding i politidistriktet du har valgt.</p>
+
+<h3>Kartet viser ikke fartøy eller fly</h3>
+<p>Sjekk at fartøy (AIS) og fly (ADS-B) er slått på i kartmenyen, og at du har nett. Zoomer du langt ut, vises bare
+fartøy i fart, redningsskøyter og SAR-fartøy. Zoom inn for å se alle.</p>
+
+<h3>Appen finner ikke posisjonen min</h3>
+<p>Gi SAR tilgang til posisjon i Innstillinger → Personvern og sikkerhet → Stedstjenester → SAR, og velg «Når appen er
+i bruk». Uten posisjon kan du fortsatt skrive inn koordinater og velge sted selv.</p>
+
+<h3>SAR vil ikke åpne på Apple Watch</h3>
+<p>Slett SAR fra klokka i Watch-appen på iPhone (Mine klokker → SAR → slå av «Vis app på Apple Watch»), start klokka
+på nytt, og slå det på igjen.</p>
+
+<h3>Hvordan sletter jeg opplysningene mine?</h3>
+<p>Slå av alt i Mer → Varsler. Da sletter vi push-adressen og valgene dine. Sletter du appen, slettes alt på enheten.
+Les mer i <a href="personvern.html">personvernerklæringen</a>.</p>
+
+<h2>Viktig</h2>
+<p>SAR er et hjelpemiddel. Appen erstatter ikke godkjente navigasjonshjelpemidler, offisielle varsler eller instrukser
+fra redningssentralene. Data fra åpne kilder kan være forsinket, unøyaktige eller mangle.</p>
+
+<h2>Personvern</h2>
+<p>Ingen konto, ingen sporing og ingen reklame. <a href="personvern.html">Les personvernerklæringen</a>.</p>
+
+<p class="note">Data: Kartverket, Meteorologisk institutt, BarentsWatch, Airplanes.Live, Redningsselskapet, Politiet og
+OpenStreetMap-bidragsytere.</p>
+
+<hr>
+
+<section id="english" lang="en">
+<h1>SAR</h1>
+<p class="sub">Tools for search and rescue · Rescue Norway</p>
+
+<p>SAR brings together the tools volunteers and crews need in search and rescue: coordinates in every format, maps
+with vessels, rescue boats and aircraft, drift calculation, tides, weather, and alerts from the Norwegian police log
+and rescue boats. Available for iPhone, iPad and Apple Watch.</p>
+
+<h2>Support</h2>
+<div class="card">
+  <p>Questions, bugs or suggestions? Send an email, ideally with a screenshot and your version
+  (More → Settings → About).</p>
+  <p class="contact"><a href="mailto:sarapp@rescuenorway.no">sarapp@rescuenorway.no</a></p>
+</div>
+
+<h2>Common questions</h2>
+
+<h3>I don’t get alerts</h3>
+<p>Check that notifications are on for SAR in iPhone Settings → Notifications, and that you have chosen something in
+More → Alerts. Alerts only arrive when something actually happens, for example when an aircraft you follow takes off or
+there is a new message in the police district you chose.</p>
+
+<h3>The map doesn’t show vessels or aircraft</h3>
+<p>Check that vessels (AIS) and aircraft (ADS-B) are turned on in the map menu, and that you are online. When zoomed
+far out, only moving vessels, rescue boats and SAR vessels are shown. Zoom in to see all.</p>
+
+<h3>The app can’t find my location</h3>
+<p>Give SAR location access in Settings → Privacy &amp; Security → Location Services → SAR, and choose “While Using the
+App”. Without location you can still enter coordinates and pick a place yourself.</p>
+
+<h3>SAR won’t open on Apple Watch</h3>
+<p>Remove SAR from the watch in the Watch app on iPhone (My Watch → SAR → turn off “Show App on Apple Watch”), restart
+the watch, and turn it on again.</p>
+
+<h3>How do I delete my data?</h3>
+<p>Turn everything off in More → Alerts. We then delete the push address and your choices. Deleting the app deletes
+everything on the device. Read more in the <a href="personvern.html#english">privacy policy</a>.</p>
+
+<h2>Important</h2>
+<p>SAR is an aid. It does not replace approved navigation equipment, official warnings or instructions from the rescue
+coordination centres. Data from open sources may be delayed, inaccurate or missing.</p>
+
+<h2>Privacy</h2>
+<p>No account, no tracking and no ads. <a href="personvern.html#english">Read the privacy policy</a>.</p>
+</section>
+
+<footer>© Rescue Norway</footer>
+</main>
 </body>
 </html>
